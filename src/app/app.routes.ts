@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+// Components
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+
+export const routes: Routes = [{
+  path: '',
+  component: ReactiveFormsComponent
+}];
