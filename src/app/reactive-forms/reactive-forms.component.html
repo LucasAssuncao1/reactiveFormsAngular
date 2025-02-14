@@ -16,18 +16,32 @@
 
   <label>
     Sobrenome:
-    <input type="text" formControlName="lastName" >
-    <!-- <span *ngIf="cadastroForm.get('lastName')?.errors">
-      Preencher o nome
-    </span> -->
+    <input type="text" formControlName="lastName"  >
+    <span *ngIf="cadastroForm.get('lastName')?.errors && (cadastroForm.get('lastName')?.dirty || (cadastroForm.get('lastName')?.dirty))">
+      Minimo de  {{ cadastroForm.get('lastName')?.errors?.['minlength']?.['requiredLength']}} caracteres
+
+    </span>
+
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Email:
+    <input type="text" formControlName="email"  >
+    <span *ngIf="cadastroForm.get('email')?.errors && (cadastroForm.get('email')?.dirty || (cadastroForm.get('email')?.dirty))">
+      Favor preencher o email corretamente
+    </span>
 
   </label>
 
   <p>
     <!-- {{cadastroForm.get('firstName')?.value}} -->
-    {{ cadastroForm.get('firstName')?.errors | json }}
+    <!-- {{ cadastroForm.get('firstName')?.errors | json }}
     {{ cadastroForm.get('firstName')?.touched | json }}
-    {{ cadastroForm.get('firstName')?.dirty | json }}
+    {{ cadastroForm.get('firstName')?.dirty | json }} -->
+    <!-- {{ cadastroForm.get('lastName')?.errors | json }} -->
+    {{ cadastroForm.get('email')?.errors | json }}
   </p>
 
   <button [disabled]="cadastroForm.invalid">Enviar</button>
