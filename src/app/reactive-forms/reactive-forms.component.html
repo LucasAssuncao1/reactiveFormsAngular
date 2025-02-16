@@ -17,9 +17,10 @@
   <label>
     Sobrenome:
     <input type="text" formControlName="lastName"  >
-    <span *ngIf="cadastroForm.get('lastName')?.errors && (cadastroForm.get('lastName')?.dirty || (cadastroForm.get('lastName')?.dirty))">
+    <span *ngIf="cadastroForm.get('lastName')?.errors && 
+    (cadastroForm.get('lastName')?.touched || (cadastroForm.get('lastName')?.dirty))">
       Minimo de  {{ cadastroForm.get('lastName')?.errors?.['minlength']?.['requiredLength']}} caracteres
-
+       e você já digitou {{ cadastroForm.get('lastName')?.errors?.['minlength']?.['actualLength']}}
     </span>
 
   </label>
@@ -29,7 +30,7 @@
   <label>
     Email:
     <input type="text" formControlName="email"  >
-    <span *ngIf="cadastroForm.get('email')?.errors && (cadastroForm.get('email')?.dirty || (cadastroForm.get('email')?.dirty))">
+    <span *ngIf="cadastroForm.get('email')?.errors && (cadastroForm.get('email')?.touched || (cadastroForm.get('email')?.dirty))">
       Favor preencher o email corretamente
     </span>
 
